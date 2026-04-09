@@ -30,15 +30,10 @@ CWDI <- CWDI |>
   mutate(CEWL = rowMeans(across(CEWL1:CEWL5), na.rm = TRUE)) |> 
   mutate(Osmo = rowMeans(across(`Replicate 1`:`Replicate 4`), na.rm = TRUE))
 
-
-ggplot(
-  filter(CWDI, !`Lizard ID` %in% c("DI-09", "CW-01")),
-  #CWDI, 
-       aes(x = Species, y = CEWL)) +
-  geom_boxplot()
+ggplot(filter(CWDI, !`Lizard ID` %in% c("DI-09", "CW-01")), #CWDI, 
+       aes(x = Species, y = CEWL)) + geom_boxplot()
   
-ggplot(
-  #filter(CWDI, !`Lizard ID` %in% c("DI-09", "CW-01")),
-  CWDI, 
-  aes(x = Species, y = Osmo)) +
-  geom_boxplot()
+ggplot(CWDI, aes(x = Species, y = Osmo)) + geom_boxplot()
+
+
+
